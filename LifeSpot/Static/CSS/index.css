@@ -1,0 +1,127 @@
+﻿/* шрифты для всего кроме input */
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*  флексбокс;
+    стили расположены соответственно расположению тегов в html-документе;*/
+body {
+    position:relative;
+    display: flex;
+    flex-wrap:wrap;
+    flex-flow:column;
+    flex-grow:inherit;
+    background-color: aqua;
+    padding: 0;
+    margin: 0;
+    height:100vh;
+}
+
+aside {
+    position: fixed;
+    z-index: 2;
+    flex-grow: 1;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 12vh;
+    height: inherit;
+    background-color: #111;
+    float: left;
+}
+
+.navbar {
+    padding: 5%;
+}
+
+.navbar a {
+    color: darkgray;
+    text-align: center;
+    font-size: 2vh;
+}
+
+.navbar a:hover {
+    color: aliceblue;
+}
+
+header {
+    flex-direction: row;
+    width: inherit;
+    height: 17vh;
+    padding: 5vh 0 1vh 14vh;
+    background-color: antiquewhite;
+    margin: 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3vh;
+}
+
+.video-search {
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    font-size: 2vh;
+    margin: 4vh 0;
+    border: 0.08em solid #a0968a;
+    outline: none;
+}
+
+.video-search:focus {
+    -moz-box-shadow: 0 0 2vh #a0968a;
+    box-shadow: 0 0 2vh #a0968a;
+    border: 0.12em solid #a0968a;
+}
+
+main {
+    position: relative;
+    margin: 0;
+    background-color: #f2f0e9;
+    padding-left: 13.5vh;
+}
+
+.box{
+    display:inline-flex;
+    flex-direction:column;
+    flex-grow: inherit;
+    height:26vh;
+    width:50vh;
+    background-color: none;
+    margin:0;
+    margin-bottom:1vh;
+    padding: 1vh 1vh 3vh 1vh;
+}
+
+.container{
+    height:25vh;
+    width:50vh;
+    background-color:forestgreen;
+    margin-bottom:2vh;
+}
+
+.container > iframe{
+    width:inherit;
+    height:inherit;
+    margin:0;
+    padding:0;
+}
+
+.box > .video-title {
+    margin: 0;
+    padding: 0;
+    font-size: 2vh;
+    text-align: center;
+}
+
+footer {
+    height: 10vh;
+    margin: 0;
+    padding: 0 0 1vh 14vh;
+    background-color: antiquewhite;
+    flex-grow: 1;
+}
+
+footer, header > p{
+    margin: 0;
+    font-size:2vh;
+}
