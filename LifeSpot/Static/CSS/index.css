@@ -1,8 +1,13 @@
 ﻿/* шрифты для всего кроме input */
 * {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vh;
+    margin:0;
+    padding:0;
 }
-
+header, footer {
+    padding: 5vh 0 1vh 14vh;
+}
 /*  флексбокс;
     стили расположены соответственно расположению тегов в html-документе;*/
 body {
@@ -12,8 +17,6 @@ body {
     flex-flow:column;
     flex-grow:inherit;
     background-color: aqua;
-    padding: 0;
-    margin: 0;
     height:100vh;
 }
 
@@ -22,8 +25,6 @@ aside {
     z-index: 2;
     flex-grow: 1;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
     top: 0;
     width: 12vh;
     height: inherit;
@@ -36,9 +37,9 @@ aside {
 }
 
 .navbar a {
+    font-size:1vh;
     color: darkgray;
     text-align: center;
-    font-size: 2vh;
 }
 
 .navbar a:hover {
@@ -49,19 +50,16 @@ header {
     flex-direction: row;
     width: inherit;
     height: 17vh;
-    padding: 5vh 0 1vh 14vh;
     background-color: antiquewhite;
-    margin: 0;
 }
 
 header h1 {
-    margin: 0;
     font-size: 3vh;
+    padding-bottom:1vh;
 }
 
 .video-search {
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
-    font-size: 2vh;
     margin: 4vh 0;
     border: 0.08em solid #a0968a;
     outline: none;
@@ -75,7 +73,6 @@ header h1 {
 
 main {
     position: relative;
-    margin: 0;
     background-color: #f2f0e9;
     padding-left: 13.5vh;
 }
@@ -87,7 +84,6 @@ main {
     height:26vh;
     width:50vh;
     background-color: none;
-    margin:0;
     margin-bottom:1vh;
     padding: 1vh 1vh 3vh 1vh;
 }
@@ -102,26 +98,20 @@ main {
 .container > iframe{
     width:inherit;
     height:inherit;
-    margin:0;
-    padding:0;
 }
 
 .box > .video-title {
-    margin: 0;
-    padding: 0;
-    font-size: 2vh;
     text-align: center;
 }
 
 footer {
-    height: 10vh;
-    margin: 0;
-    padding: 0 0 1vh 14vh;
+    height: 8vh;
     background-color: antiquewhite;
     flex-grow: 1;
+    justify-content: center;
+    color: #242424;
 }
 
-footer, header > p{
-    margin: 0;
-    font-size:2vh;
+#first-line{
+    padding-top:4vh;
 }
