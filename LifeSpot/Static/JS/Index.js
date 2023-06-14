@@ -53,20 +53,19 @@ var userData = function (map1) {
     }
 }
 
-let contentFilter = function InputSearch()
+let contentFilter = function InputSearch(message)
 {
-    let searchName = document.getElementsByTagName('input')[0].value.toLowerCase();
-    let elements = document.getElementsByClassName('box');
-    for (let i = 0; i < elements.length; i++)
-    {
-        let title = elements[i].getElementsByClassName('video-title')[0].textContent.toLowerCase();
-        if (title.includes(searchName) && searchName.length > 0)
-        {
-            elements[i].style.display = 'inline-flex';
-        }
-        else
-        {
-            elements[i].style.display = 'none';
+    if (message != undefined) {
+        //let searchName = document.getElementsByTagName('input')[0].value.toLowerCase();
+        let elements = document.getElementsByClassName('box');
+        for (let i = 0; i < elements.length; i++) {
+            let title = elements[i].getElementsByClassName('video-title')[0].textContent.toLowerCase();
+            if (title.includes(message)) {
+                elements[i].style.display = 'inline-flex';
+            }
+            else {
+                elements[i].style.display = 'none';
+            }
         }
     }
 }
