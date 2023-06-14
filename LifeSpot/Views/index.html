@@ -2,22 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <script src="Static/JS/Index.js"></script>
+    <script src="Static/JS/InputScript.js"></script>
     <title>Lifespot</title>
-    <link href="Static/CSS/index.css" rel="stylesheet" />
+    <link href="Static/CSS/Index.css" rel="stylesheet" />
+    <script>
+        userData();
+    </script>
 </head>
 <body>
-    <!--Сайд-бар-->
-    <aside>
-        <div class="navbar">
-            <a href="/"><p>Все трансляции</p></a>
-            <a href="/"><p>О проекте</p></a>
-        </div>
-    </aside>
+    <!--SIDEBAR-->
     <!--Шапка-->
     <header>
         <h1>LifeSpot - прямые трансляции с улиц</h1>
         <p>Покажем, что происходит прямо сейчас</p>
-        <input class="video-search" placeholder="Название трансляции" />
+            <input class="video-search" type="text" placeholder="Название трансляции" oninput="contentFilter()">
     </header>
     <!--Раздел с контентом-->
     <main>
@@ -50,7 +49,7 @@
         </div>
         <div class="box">
             <div class="container">
-                <iframe src="https://www.youtube.com/embed/DjdUEyjx8GM" 
+                <iframe src="https://www.youtube.com/embed/DjdUEyjx8GM"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
                 </iframe>
@@ -76,10 +75,6 @@
             <h3 class="video-title">Нью-Йорк, Таймс-сквер</h3>
         </div>
     </main>
-    <!--Подвал-->
-    <footer>
-        <p id="first-line">Lifespot&#169 - видеотрансляции</p>
-        <p>Связь с разработчиком: hooorbazoom@gmail.com</p>
-    </footer>
+    <!--FOOTER-->
 </body>
 </html>

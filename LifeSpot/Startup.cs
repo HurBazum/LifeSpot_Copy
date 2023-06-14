@@ -1,4 +1,5 @@
 using System.IO;
+using System.Text;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -24,21 +25,61 @@ namespace LifeSpot
             }
 
             app.UseRouting();
-            app.UseStaticFiles();
+
+            string footerHtml = File.
+                ReadAllText(Path.
+                Combine(Directory.
+                GetCurrentDirectory(), "Views", "Shared", "Footer.html"));
+            string sideBarHtml = File.
+                ReadAllText(Path.
+                Combine(Directory.
+                GetCurrentDirectory(), "Views", "Shared", "SideBar.html"));
+
+            //app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
-                    var html = await File.ReadAllTextAsync(viewPath);
-                    await context.Response.WriteAsync(html);
+                    var viewPath = Path.Combine(Directory
+                        .GetCurrentDirectory(), "Views", "Index.html");
+                    var html = new StringBuilder(await File.ReadAllTextAsync(viewPath))
+                       .Replace("<!--SIDEBAR-->", sideBarHtml)
+                       .Replace("<!--FOOTER-->", footerHtml);
+                    await context.Response.WriteAsync(html.ToString());
                 });
-                endpoints.Map("/Static/CSS/index.css", async context => 
+                endpoints.MapGet("/Testing.html", async context =>
+                {
+                    var testPath = Path.Combine
+                    (Directory.GetCurrentDirectory(), "Views", "Testing.html");
+                    var html = new StringBuilder(await File.ReadAllTextAsync(testPath))
+                       .Replace("<!--SIDEBAR-->", sideBarHtml)
+                       .Replace("<!--FOOTER-->", footerHtml);
+                    await context.Response.WriteAsync(html.ToString());
+                });
+                endpoints.Map("/Static/CSS/Index.css", async context => 
                 { 
-                    var cssPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "CSS", "index.css");
+                    var cssPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "CSS", "Index.css");
                     var css = await File.ReadAllTextAsync(cssPath);
                     await context.Response.WriteAsync(css);
+                });
+                endpoints.MapGet("/Static/JS/Index.js", async context =>
+                {
+                    var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JS", "Index.js");
+                    var js = await File.ReadAllTextAsync(jsPath);
+                    await context.Response.WriteAsync(js);
+                });
+                endpoints.MapGet("/Static/JS/TestScript.js", async context =>
+                {
+                    var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JS", "TestScript.js");
+                    var js = await File.ReadAllTextAsync(jsPath);
+                    await context.Response.WriteAsync(js);
+                });
+                endpoints.MapGet("/Static/JS/InputScript.js", async context =>
+                {
+                    var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "Static", "JS", "InputScript.js");
+                    var js = await File.ReadAllTextAsync(jsPath);
+                    await context.Response.WriteAsync(js);
                 });
             });
         }

@@ -7,15 +7,14 @@
 }
 header, footer {
     padding: 5vh 0 1vh 14vh;
+    letter-spacing:0.08em;
 }
 /*  флексбокс;
     стили расположены соответственно расположению тегов в html-документе;*/
 body {
     position:relative;
     display: flex;
-    flex-wrap:wrap;
     flex-flow:column;
-    flex-grow:inherit;
     background-color: aqua;
     height:100vh;
 }
@@ -23,8 +22,6 @@ body {
 aside {
     position: fixed;
     z-index: 2;
-    flex-grow: 1;
-    flex-direction: column;
     top: 0;
     width: 12vh;
     height: inherit;
@@ -37,17 +34,22 @@ aside {
 }
 
 .navbar a {
-    font-size:1vh;
     color: darkgray;
     text-align: center;
+    text-decoration: none;
 }
 
 .navbar a:hover {
     color: aliceblue;
 }
 
+#anchor_side {
+    font-size: 1.5vh;
+    letter-spacing: 0.02em;
+    padding-top: 1vh;
+}
+
 header {
-    flex-direction: row;
     width: inherit;
     height: 17vh;
     background-color: antiquewhite;
@@ -62,7 +64,14 @@ header h1 {
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     margin: 4vh 0;
     border: 0.08em solid #a0968a;
+    border-radius: 0.7em;
+    padding-left: 0.5em;
     outline: none;
+    caret-color: #d908f8;
+}
+
+.video-search:hover {
+    border: 0.12em solid #a0968a;
 }
 
 .video-search:focus {
@@ -98,6 +107,10 @@ main {
 .container > iframe{
     width:inherit;
     height:inherit;
+}
+
+iframe:focus{
+    width:50vh;
 }
 
 .box > .video-title {
