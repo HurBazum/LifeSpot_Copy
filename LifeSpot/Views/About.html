@@ -1,23 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <script src="Static/JS/Index.js"></script>
-    <script src="Static/JS/InputScript.js"></script>
+    <script src="Static/JS/Feedback.js"></script>
     <title>Lifespot</title>
     <link href="Static/CSS/Index.css" rel="stylesheet" />
     <script>
         Subscribe();
-
-        handleSession();
-
-        //CheckAge();
-
-        sessionLog();
-
-        const inputParseFunction = function () {
-            return document.getElementsByClassName('video-search')[0].value.toLowerCase();
-        }
+        
     </script>
 </head>
 <body>
@@ -26,10 +17,6 @@
     <header>
         <h1>LifeSpot - прямые трансляции с улиц</h1>
         <p>Покажем, что происходит прямо сейчас</p>
-            <input class="video-search" type="text" 
-                   placeholder="Название трансляции"
-                   oninput="
-    filterContent()">
     </header>
     <!--MAIN-->
     <main>
