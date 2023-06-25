@@ -135,14 +135,13 @@ footer {
 .about_txt {
     line-height: 1.1em;
     letter-spacing: 0.035em;
-    padding-inline-end: 15vh;
+    padding-inline-end: 8vh;
     word-break:break-all;
 }
 
 .about_section {
     padding: 0.75em 0;
-    min-height:75vh;
-    height: stretch;
+    min-height:128vh;
 }
 
 .commentSender {
