@@ -5,7 +5,7 @@ let review = {}
 * и сохраним отзыв в объект
 *
 * */
-function getReview(b) {
+function getReview() {
     
 
     // Сохраним свойство имени
@@ -24,14 +24,14 @@ function getReview(b) {
     review["date"] = new Date().toLocaleString()
 
     // Добавим на страницу
-    writeReview(review, b)
+    writeReview(review)
 }
 
 /*
 * Запишем отзыв на страницу
 *
 * */
-const writeReview = (review, b) => {
+const writeReview = (review) => {
         document.getElementsByClassName('about_section')[0].innerHTML += '    <div class="review-text">\n' +
             `<p> <i> <b>${review['userName']}</b>  ${review['date']}</i></p>` +
             `<p>${review['comment']}</p>` + '</div>';

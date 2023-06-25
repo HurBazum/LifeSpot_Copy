@@ -135,14 +135,13 @@ footer {
 .about_txt {
     line-height: 1.1em;
     letter-spacing: 0.035em;
-    padding-inline-end: 15vh;
+    padding-inline-end: 8vh;
     word-break:break-all;
 }
 
 .about_section {
     padding: 0.75em 0;
-    min-height:75vh;
-    height: stretch;
+    min-height:128vh;
 }
 
 .commentSender {
@@ -177,19 +176,3 @@ footer {
     border: 0.1em solid #e0d9bf;
     border-radius:5px;
 }
-
-/*.reply{
-    margin-left:30vh;
-}
-
-.review-reply {
-    display: block;
-    width: 35vh;
-    overflow-wrap: anywhere;
-    background-color: #e0d9bf;
-    margin-top: 0.5em;
-    padding: 0.25em 0.5em;
-    box-shadow: 1vh 1vh 2px 1px rgba(0, 0, 255, .2);
-    border: 0.1em solid #e0d9bf;
-    border-radius: 5px;
-}*/
