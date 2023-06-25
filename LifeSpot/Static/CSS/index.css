@@ -27,7 +27,7 @@ aside {
     z-index: 2;
     top: 0;
     width: 12vh;
-    height: 100vh;
+    height: -webkit-fill-available;
     background-color: #111;
     float: left;
 }
@@ -88,8 +88,6 @@ main {
     background-color: #f2f0e9;
     padding-left: 13.5vh;
 }
-
-
 
 .box{
     display:inline-flex;
@@ -180,7 +178,7 @@ footer {
     border-radius:5px;
 }
 
-.reply{
+/*.reply{
     margin-left:30vh;
 }
 
@@ -194,4 +192,4 @@ footer {
     box-shadow: 1vh 1vh 2px 1px rgba(0, 0, 255, .2);
     border: 0.1em solid #e0d9bf;
     border-radius: 5px;
-}
+}*/

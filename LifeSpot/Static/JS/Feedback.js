@@ -1,8 +1,5 @@
-let map = new Map();
 // Создадим объект
 let review = {}
-
-let t = 0;
 /*
 * Запросим пользовательский ввод
 * и сохраним отзыв в объект
@@ -28,10 +25,6 @@ function getReview(b) {
 
     // Добавим на страницу
     writeReview(review, b)
-
-    map.set("id", t);
-    map.set("comment", review['userName']);
-    t++;
 }
 
 /*
@@ -39,24 +32,7 @@ function getReview(b) {
 *
 * */
 const writeReview = (review, b) => {
-    if (b == true) {
-        document.getElementsByClassName('about_section')[0].innerHTML += '    <div class="review-reply">\n' +
-            `<p> <i> <b>${review['userName']}</b>  ${review['date']}</i></p>` +
-            `<p>${review['comment']}</p>` + '<button class="reply" type="submit" onclick="getReview(true)">Ответить<button/>'
-        '</div>';
-    }
-    else {
         document.getElementsByClassName('about_section')[0].innerHTML += '    <div class="review-text">\n' +
             `<p> <i> <b>${review['userName']}</b>  ${review['date']}</i></p>` +
-            `<p>${review['comment']}</p>` + '<button class="reply" type="submit" onclick="getReview(true)">Ответить<button/>'
-        '</div>';
-    }
-}
-
-/*
-* Ответим на комментарий
-*
-* */
-function getIdForReply() {
-
+            `<p>${review['comment']}</p>` + '</div>';
 }
