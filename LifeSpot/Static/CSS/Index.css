@@ -1,0 +1,179 @@
+﻿/* шрифты для всего кроме input */
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vh;
+    margin:0;
+    padding:0;
+}
+header, footer {
+    padding: 3vh 0 1vh 14vh;
+    letter-spacing:0.08em;
+}
+html{
+    min-width:34rem;
+}
+/*  флексбокс;
+    стили расположены соответственно расположению тегов в html-документе;*/
+body {
+    position:relative;
+    display: flex;
+    flex-flow:column;
+    background-color: aqua;
+    height:100vh;
+}
+
+aside {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    width: 12vh;
+    height: -webkit-fill-available;
+    background-color: #111;
+    float: left;
+}
+
+.navbar {
+    padding: 5%;
+}
+
+.navbar a {
+    color: darkgray;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: aliceblue;
+}
+
+#anchor_side {
+    font-size: 1.5vh;
+    letter-spacing: 0.02em;
+    padding-top: 1vh;
+}
+
+header {
+    width: inherit;
+    height: 17vh;
+    background-color: antiquewhite;
+}
+
+header h1 {
+    font-size: 3vh;
+    padding-bottom:1vh;
+}
+
+.video-search {
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    margin: 4vh 0;
+    border: 0.08em solid #a0968a;
+    border-radius: 0.7em;
+    padding-left: 0.5em;
+    outline: none;
+    caret-color: #d908f8;
+}
+
+.video-search:hover {
+    border: 0.12em solid #a0968a;
+}
+
+.video-search:focus {
+    -moz-box-shadow: 0 0 2vh #a0968a;
+    box-shadow: 0 0 2vh #a0968a;
+    border: 0.12em solid #a0968a;
+}
+
+main {
+    position: relative;
+    background-color: #f2f0e9;
+    padding-left: 13.5vh;
+}
+
+.box{
+    display:inline-flex;
+    flex-direction:column;
+    flex-grow: inherit;
+    height:26vh;
+    width:50vh;
+    background-color: none;
+    margin-bottom:1vh;
+    padding: 1vh 1vh 3vh 1vh;
+}
+
+.container{
+    flex-grow:inherit;
+    height:25vh;
+    width:50vh;
+    background-color:forestgreen;
+    margin-bottom:2vh;
+}
+
+.container > iframe{
+    width:inherit;
+    height:inherit;
+}
+
+.box > .video-title {
+    text-align: center;
+}
+
+footer {
+    height: 8vh;
+    background-color: antiquewhite;
+    flex-grow: 1;
+    justify-content: center;
+    color: #242424;
+}
+
+#first-line {
+    padding-top: 2vh;
+}
+
+
+
+/*for About.html*/
+.about_txt {
+    line-height: 1.1em;
+    letter-spacing: 0.035em;
+    padding-inline-end: 15vh;
+    word-break:break-all;
+}
+
+.about_section {
+    padding: 0.75em 0;
+    min-height:75vh;
+    height: stretch;
+}
+
+.commentSender {
+    margin: 1.5vh;
+    padding: 0.5rem;
+    outline: none;
+    background-color: antiquewhite;
+    border: 0.1em solid antiquewhite;
+    border-radius: 5px;
+}
+
+.commentSender:hover {
+    background-color: #f5e8bc;
+    border-color: #f5e8bc;
+}
+
+.review-container, .review-button {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding-left: 1%;
+    padding-top: 1%;
+}
+
+.review-text {
+    display: block;
+    width: 40vh;
+    overflow-wrap: anywhere;
+    background-color: #e0d9bf;
+    margin-top: 0.5em;
+    padding: 0.25em 0.5em;
+    box-shadow: 1vh 1vh 2px 1px rgba(0, 0, 255, .2);
+    border: 0.1em solid #e0d9bf;
+    border-radius:5px;
+}
