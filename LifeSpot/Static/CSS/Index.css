@@ -176,3 +176,27 @@ footer {
     border: 0.1em solid #e0d9bf;
     border-radius:5px;
 }
+
+.rateButton {
+    display: inline-block;
+    outline: none;
+    background-color: antiquewhite;
+    border: 0.1em solid antiquewhite;
+    border-radius: 5px;
+    width: 3vh;
+    height:3vh;
+    justify-content:center;
+}
+
+.rateButton:hover {
+    background-color: #f5e8bc;
+    border-color: #f5e8bc;
+}
+
+.rate {
+    display: inline-block;
+    min-width: 3vh;
+    width: contain;
+    text-align:center;
+    margin-right:0.5vh;
+}

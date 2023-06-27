@@ -18,30 +18,36 @@ let redirectUser = function Redirector(mes) {
 function Greetings() {
     let startDate = new Date().toLocaleString();
     alert('Приветствуем на Lifespot!' + '\nТекущая дата: ' + startDate);
-    session.set("startDate", startDate);
+    sessionStorage.setItem("startDate", startDate);
 }
 
 // Проверка возраста
-function CheckAge () {
-    session.set("age", prompt('Введите свой возраст!'))
+function CheckAge() {
+    const whatAge = ("age" in sessionStorage);
+    if (!whatAge) {
+        sessionStorage.setItem("age", prompt('Введите свой возраст!'))
 
-    if (session.get("age") >= 18) {
-        Greetings()
+        if (sessionStorage.getItem("age") >= 18) {
+            Greetings()
+        }
+        else {
+            redirectUser();
+        }
     }
-    else {
+    else if (whatAge && sessionStorage.getItem("age") < 18) {
         redirectUser();
     }
 }
 
 // получение пользовательских данных, при первом посещении
 function handleSession() {
-    session.set("userArgent", window.navigator.userAgent);
+    sessionStorage.setItem("userArgent", window.navigator.userAgent);
 }
 
 let sessionLog = function logSession() {
-    for (let result of session) {
-        console.log(result);
-    }
+    console.log(sessionStorage.getItem("userArgent"));
+    console.log(sessionStorage.getItem("age"));
+    console.log(sessionStorage.getItem("startDate"));
 }
 
 // сверка при повторных попытках входа, чтобы не отключать предыдущую функцию 

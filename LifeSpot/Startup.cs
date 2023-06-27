@@ -34,7 +34,9 @@ namespace LifeSpot
             string videoContentHtml = File
                 .ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "VideoContent.html"));
             string aboutContent = File
-                .ReadAllText(Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "AboutContent.html")));
+                .ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "AboutContent.html"));
+            string testingContent = File
+                .ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "TestingContent.html"));
 
             //app.UseStaticFiles();
 
@@ -66,7 +68,8 @@ namespace LifeSpot
                     var testPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "Testing.html");
                     var html = new StringBuilder(await File.ReadAllTextAsync(testPath))
                        .Replace("<!--SIDEBAR-->", sideBarHtml)
-                       .Replace("<!--FOOTER-->", footerHtml);
+                       .Replace("<!--FOOTER-->", footerHtml)
+                       .Replace("<!--CONTENT-->", testingContent);
                     await context.Response.WriteAsync(html.ToString());
                 });
 
