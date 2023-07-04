@@ -141,7 +141,7 @@ footer {
 
 .about_section {
     padding: 0.75em 0;
-    min-height:128vh;
+    min-height: 128vh;
 }
 
 .commentSender {
@@ -175,4 +175,69 @@ footer {
     box-shadow: 1vh 1vh 2px 1px rgba(0, 0, 255, .2);
     border: 0.1em solid #e0d9bf;
     border-radius:5px;
+}
+
+.rateButton {
+    display: inline-block;
+    outline: none;
+    background-color: antiquewhite;
+    border: 0.1em solid antiquewhite;
+    border-radius: 5px;
+    width: 3vh;
+    height:3vh;
+    justify-content:center;
+}
+
+.rateButton:hover {
+    background-color: #f5e8bc;
+    border-color: #f5e8bc;
+}
+
+.rate {
+    display: inline-block;
+    min-width: 3vh;
+    width: contain;
+    text-align:center;
+    margin-right:0.5vh;
+}
+
+/* slider */
+
+.slider {
+    width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+}
+.slider-page {
+    object-fit: fill;
+    width: -webkit-fill-available;
+    flex-grow: 5;
+    display: table-caption;
+    padding-right: 2vh;
+    vertical-align: central;
+}
+img {
+    width:inherit;
+    height:inherit;
+}
+
+#btn-right, #btn-left{
+    position:absolute;
+    background-color:#a8969666;
+    width: 5vh;
+    height:5vh;
+    display:inline-flex;
+    flex-wrap:wrap;
+    flex-direction:column;
+    cursor:crosshair;
+    justify-content:center;
+    align-content:center;
+}
+#btn-right{
+    right:2vh;
+}
+
+#btn-left{
+    left:0;
+    margin-left:13.5vh;
 }
