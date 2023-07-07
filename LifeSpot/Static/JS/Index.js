@@ -94,3 +94,9 @@ function filterContent()
 function Subscribe() {
     setTimeout(() => alert('Подпишитесь на наши соцсети!'), 60000);
 }
+
+function plVd() {
+    let f = document.getElementsByClassName('box')[3].querySelector('iframe');
+
+    f.dispatchEvent('click');
+}
