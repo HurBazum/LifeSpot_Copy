@@ -1,4 +1,4 @@
-// массив ссылок на картинки
+// РјР°СЃСЃРёРІ СЃСЃС‹Р»РѕРє РЅР° РєР°СЂС‚РёРЅРєРё
 const nameOfPictures = [
     "https://localhost:5001/Static/SlidePictures/spb.jpg",
     "https://localhost:5001/Static/SlidePictures/london.jpg",
@@ -6,7 +6,7 @@ const nameOfPictures = [
     "https://localhost:5001/Static/SlidePictures/tokyoCut.jpg"
 ];
 
-// тест
+// С‚РµСЃС‚
 function foo() {
     const sldr = document.getElementsByClassName('slider')[0];
     if (sldr == undefined) {
@@ -17,7 +17,7 @@ function foo() {
     }
 }
 
-//вывод ссылки на текущую картинку в консоль
+//РІС‹РІРѕРґ СЃСЃС‹Р»РєРё РЅР° С‚РµРєСѓС‰СѓСЋ РєР°СЂС‚РёРЅРєСѓ РІ РєРѕРЅСЃРѕР»СЊ
 function foo1(x) {
     let g = new Array();
     for (let ch of Array.from(x.children)) {
@@ -29,7 +29,7 @@ function foo1(x) {
     console.log(g)
 }
 
-// изменение текущей картинки, при помощи кнопок на слайдере
+// РёР·РјРµРЅРµРЅРёРµ С‚РµРєСѓС‰РµР№ РєР°СЂС‚РёРЅРєРё, РїСЂРё РїРѕРјРѕС‰Рё РєРЅРѕРїРѕРє РЅР° СЃР»Р°Р№РґРµСЂРµ
 function changePicture(id) {
     let currenrPicture = document.getElementsByClassName('slider')[0].children[0].querySelector('img');
     let link = currenrPicture.src;
@@ -66,9 +66,9 @@ function getSliderHeight() {
     console.log(hWindow);
 }
 
-// красит кружок соответствующий текущей картинке
-// direction 'от первого к последнему' - true
-// direction 'от последнего к первому' - false
+// РєСЂР°СЃРёС‚ РєСЂСѓР¶РѕРє СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёР№ С‚РµРєСѓС‰РµР№ РєР°СЂС‚РёРЅРєРµ
+// direction 'РѕС‚ РїРµСЂРІРѕРіРѕ Рє РїРѕСЃР»РµРґРЅРµРјСѓ' - true
+// direction 'РѕС‚ РїРѕСЃР»РµРґРЅРµРіРѕ Рє РїРµСЂРІРѕРјСѓ' - false
 function changeBubble(bubbles, index, direction) {
     if (direction == true) {
         if (index != 0) {
@@ -99,7 +99,7 @@ window.onload = function () {
     const sldrPg = sldr.children[0];
     let pic = sldr.children[0].querySelector('img');
 
-    // скрыть кнопки на слайдере
+    // СЃРєСЂС‹С‚СЊ РєРЅРѕРїРєРё РЅР° СЃР»Р°Р№РґРµСЂРµ
     sldr.addEventListener("mouseout", function () {
         let x = document.getElementsByClassName('navigator');
         let o = sldr.getElementsByClassName('txtSldr')[0];
@@ -111,7 +111,7 @@ window.onload = function () {
         sldr.style.margin = '0 0 -2vh 0';
     });
 
-    // показать кнопки на слайдере
+    // РїРѕРєР°Р·Р°С‚СЊ РєРЅРѕРїРєРё РЅР° СЃР»Р°Р№РґРµСЂРµ
     sldr.addEventListener("mouseover", function () {
         let x = document.getElementsByClassName('navigator');
         let o = sldr.getElementsByClassName('txtSldr')[0];
@@ -125,9 +125,9 @@ window.onload = function () {
         sldr.style.margin = '0 0 -7vh 0';
     });
 
-    // #d32d2d; - базовый цвет кружкка
-    // #ae4c4c; - новый цвет
-    // смена картинки в слайдере с помощью стрелок
+    // #d32d2d; - Р±Р°Р·РѕРІС‹Р№ С†РІРµС‚ РєСЂСѓР¶РєРєР°
+    // #ae4c4c; - РЅРѕРІС‹Р№ С†РІРµС‚
+    // СЃРјРµРЅР° РєР°СЂС‚РёРЅРєРё РІ СЃР»Р°Р№РґРµСЂРµ СЃ РїРѕРјРѕС‰СЊСЋ СЃС‚СЂРµР»РѕРє
     window.addEventListener("keydown", function (event) {
         let currenrPicture = document.getElementsByClassName('slider')[0].children[0].querySelector('img');
         let link = currenrPicture.src;
@@ -160,8 +160,8 @@ window.onload = function () {
     });
 }
 
-// создаёт кружки под картинкой, кот. показывают общее кол-во картинок 
-// и текущую картинку, чуть изменяя свой цвет
+// СЃРѕР·РґР°Р„С‚ РєСЂСѓР¶РєРё РїРѕРґ РєР°СЂС‚РёРЅРєРѕР№, РєРѕС‚. РїРѕРєР°Р·С‹РІР°СЋС‚ РѕР±С‰РµРµ РєРѕР»-РІРѕ РєР°СЂС‚РёРЅРѕРє 
+// Рё С‚РµРєСѓС‰СѓСЋ РєР°СЂС‚РёРЅРєСѓ, С‡СѓС‚СЊ РёР·РјРµРЅВ¤В¤ СЃРІРѕР№ С†РІРµС‚
 function addBub(amount, parent) {
     let startLeftPos = 50;
     for (let i = amount - 1; i > -1; i--) {
@@ -177,11 +177,11 @@ function startBubble() {
     document.getElementsByClassName('bub')[indexCurrPic].style.backgroundColor = "#ae4c4c";
 }
 
-// тест
+// С‚РµСЃС‚
 document.addEventListener('DOMContentLoaded', foo());
 
-// создаёт коллекцию кружков под слайдером сразу после загрузки
+// СЃРѕР·РґР°Р„С‚ РєРѕР»Р»РµРєС†РёСЋ РєСЂСѓР¶РєРѕРІ РїРѕРґ СЃР»Р°Р№РґРµСЂРѕРј СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ Р·Р°РіСЂСѓР·РєРё
 document.addEventListener('DOMContentLoaded', addBub(nameOfPictures.length, document.getElementsByClassName('txtSldr')[0]));
 
-// задаёт цвет первого кружка под слайдером сразу после загрузки
+// Р·Р°РґР°Р„С‚ С†РІРµС‚ РїРµСЂРІРѕРіРѕ РєСЂСѓР¶РєР° РїРѕРґ СЃР»Р°Р№РґРµСЂРѕРј СЃСЂР°Р·Сѓ РїРѕСЃР»Рµ Р·Р°РіСЂСѓР·РєРё
 document.addEventListener('DOMContentLoaded', startBubble);

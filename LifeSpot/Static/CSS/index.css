@@ -207,8 +207,10 @@ footer {
     width: inherit;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 0 -2vh 0;
 }
 .slider-page {
+    display:flex;
     object-fit: fill;
     width: -webkit-fill-available;
     flex-grow: 5;
@@ -216,28 +218,54 @@ footer {
     padding-right: 2vh;
     vertical-align: central;
 }
+
 img {
     width:inherit;
     height:inherit;
 }
 
-#btn-right, #btn-left{
-    position:absolute;
-    background-color:#a8969666;
-    width: 5vh;
-    height:5vh;
-    display:inline-flex;
-    flex-wrap:wrap;
-    flex-direction:column;
-    cursor:crosshair;
-    justify-content:center;
-    align-content:center;
+/*#btn-right, #btn-left*/
+.navigator{
+    position: relative;
+    /* db187a */
+    background-color: #623d5ad8;
+    width: 7vh;
+    height: 5vh;
+    display: none;
+    flex-wrap: wrap;
+    flex-grow: 16;
+    flex-direction: column;
+    cursor: crosshair;
+    justify-content: center;
+    align-content: center;
+    top: -45%;
 }
 #btn-right{
-    right:2vh;
+    float:right;
 }
-
-#btn-left{
-    left:0;
-    margin-left:13.5vh;
+.txtSldr {
+    position: relative;
+    /* db187a*/
+    width: fit-content;
+    height: 5vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content:center;
+    bottom: 2vh;
+    margin: 0;
+    left:50%;
+}
+.bub {
+    position: relative;
+    display: inline-flex;
+    border-radius: 50%;
+    width: 1vh;
+    height: 1vh;
+    background-color: #d32d2d;
+    top: -43%;
+    margin-right: 1vh;
+}
+.bub:last-child{
+    margin:0;
 }
