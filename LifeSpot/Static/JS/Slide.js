@@ -25,7 +25,7 @@ function foo() {
     }
 }
 
-//вывод ссылки на текущую картинку в консоль
+// вывод ссылки на текущую картинку в консоль
 function foo1(x) {
     let g = new Array();
     for (let ch of Array.from(x.children)) {
@@ -104,6 +104,40 @@ function getSliderHeight() {
     console.log(hWindow);
 }
 
+// #d32d2d; - базовый цвет кружкка
+// #ae4c4c; - новый цвет
+// смена картинки в слайдере с помощью стрелок
+function pressArrowsToBrowseImg(event) {
+    let currenrPicture = document.getElementsByClassName('slider')[0].children[0].querySelector('img');
+    let link = currenrPicture.src;
+    let b = document.getElementsByClassName('bub');
+
+    if (event.key === "ArrowRight") {
+        if (link != nameOfPictures[nameOfPictures.length - 1]) {
+            let newSrc = nameOfPictures.indexOf(link) + 1;
+            link = nameOfPictures[newSrc];
+            changeBubble(b, newSrc, true);
+        }
+        else {
+            link = nameOfPictures[0];
+            changeBubble(b, 0, true);
+        }
+        currenrPicture.src = link;
+    }
+    if (event.key === "ArrowLeft") {
+        if (link != nameOfPictures[0]) {
+            let newSrc = nameOfPictures.indexOf(link) - 1;
+            link = nameOfPictures[newSrc];
+            changeBubble(b, newSrc, false);
+        }
+        else {
+            link = nameOfPictures[nameOfPictures.length - 1];
+            changeBubble(b, nameOfPictures.length - 1, false);
+        }
+        currenrPicture.src = link;
+    }
+}
+
 // 
 window.onload = function () {
 
@@ -130,41 +164,6 @@ window.onload = function () {
         o.style.bottom = '3vh';
         sldr.style.margin = '0 0 -7vh 0';
     });
-
-
-    // #d32d2d; - базовый цвет кружкка
-    // #ae4c4c; - новый цвет
-    // смена картинки в слайдере с помощью стрелок
-    window.addEventListener("keydown", function (event) {
-        let currenrPicture = document.getElementsByClassName('slider')[0].children[0].querySelector('img');
-        let link = currenrPicture.src;
-        let b = document.getElementsByClassName('bub');
-
-        if (event.key === "ArrowRight") {
-            if (link != nameOfPictures[nameOfPictures.length - 1]) {
-                let newSrc = nameOfPictures.indexOf(link) + 1;
-                link = nameOfPictures[newSrc];
-                changeBubble(b, newSrc, true);
-            }
-            else {
-                link = nameOfPictures[0];
-                changeBubble(b, 0, true);
-            }
-            currenrPicture.src = link;
-        }
-        if (event.key === "ArrowLeft") {
-            if (link != nameOfPictures[0]) {
-                let newSrc = nameOfPictures.indexOf(link) - 1;
-                link = nameOfPictures[newSrc];
-                changeBubble(b, newSrc, false);
-            }
-            else {
-                link = nameOfPictures[nameOfPictures.length - 1];
-                changeBubble(b, nameOfPictures.length - 1, false);
-            }
-            currenrPicture.src = link;
-        }
-    });
 }
 
 // задаёт цвет для первого кружка, при загрузке страницы
@@ -189,3 +188,15 @@ document.addEventListener('DOMContentLoaded', startBubble);
 
 // тест
 document.addEventListener('DOMContentLoaded', foo);
+
+
+// картинки листаются с помощью стрелок, если предварительно кликнуть по картинке,
+// если кликнуть в другом месте - листать с помощью стрелок уже будет нельзя!
+window.onclick = function (event) {
+    if (event.target == document.querySelector('img')) {
+        window.addEventListener("keydown", pressArrowsToBrowseImg);
+    }
+    else {
+        window.removeEventListener("keydown", pressArrowsToBrowseImg);
+    }
+}

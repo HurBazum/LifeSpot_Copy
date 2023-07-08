@@ -208,6 +208,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     margin: 0 0 -2vh 0;
+    /*text-align: center;*/
 }
 .slider-page {
     display:flex;
@@ -240,21 +241,25 @@ img {
     align-content: center;
     top: -45%;
 }
-#btn-right{
-    float:right;
+#btn-left{
+    float:left;
 }
-.txtSldr {
+#btn-right {
+    float: right;
+}
+.tracker {
     position: relative;
     /* db187a*/
+    clear: both;
     width: fit-content;
     height: 5vh;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
-    justify-content:center;
-    bottom: 2vh;
+    justify-content: center;
+    bottom: -2vh;
     margin: 0;
-    left:50%;
+    margin-left: 50%;
 }
 .bub {
     position: relative;
