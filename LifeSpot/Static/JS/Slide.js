@@ -7,6 +7,7 @@ const nameOfPictures = [
 ];
 
 // тест
+// выравнивает div с кружками примерно по центру slider'а
 function foo() {
     const sldr = document.getElementsByClassName('slider')[0];
     if (sldr == undefined) {
@@ -14,6 +15,13 @@ function foo() {
     }
     else {
         foo1(sldr);
+        let sliderWidth = +getComputedStyle(sldr).width.replace('px','');
+        let trackerWidth = +getComputedStyle(sldr.children[1]).width.replace('px', '');
+        console.log(sliderWidth);
+        console.log(trackerWidth);
+        let centerPosition = (trackerWidth / sliderWidth) * 50;
+        console.log(centerPosition)
+        sldr.children[1].style.left = +sldr.children[1].style.left.replace('%', '') - centerPosition + '%';
     }
 }
 
@@ -28,44 +36,6 @@ function foo1(x) {
     }
     console.log(g)
 }
-
-// изменение текущей картинки, при помощи кнопок на слайдере
-function changePicture(id) {
-    let currenrPicture = document.getElementsByClassName('slider')[0].children[0].querySelector('img');
-    let link = currenrPicture.src;
-    if (id == 'btn-right') {
-        if (link != nameOfPictures[nameOfPictures.length - 1]) {
-            let newSrc = nameOfPictures.indexOf(link) + 1;
-            link = nameOfPictures[newSrc];
-        }
-        else {
-            link = nameOfPictures[0];
-        }
-    }
-    else {
-        if (link != nameOfPictures[0]) {
-            let newSrc = nameOfPictures.indexOf(link) - 1;
-            link = nameOfPictures[newSrc];
-        }
-        else {
-            link = nameOfPictures[nameOfPictures.length - 1];
-        }
-    }
-    currenrPicture.src = link;
-}
-// getComputedStyle for compute btn.style.top!
-function getSliderHeight() {
-    let hWindow = window.innerHeight;
-    hWindow = hWindow / 20 + 'px';
-    let right = document.getElementById('btn-right');
-    let left = document.getElementById('btn-left');
-
-    right.style.top = hWindow;
-    left.style.top = hWindow;
-
-    console.log(hWindow);
-}
-
 // красит кружок соответствующий текущей картинке
 // direction 'от первого к последнему' - true
 // direction 'от последнего к первому' - false
@@ -91,39 +61,76 @@ function changeBubble(bubbles, index, direction) {
         }
     }
 }
+// изменение текущей картинки, при помощи кнопок на слайдере
+function changePicture(id) {
+    let currenrPicture = document.getElementsByClassName('slider')[0].children[0].querySelector('img');
+    let link = currenrPicture.src;
+    let b = document.getElementsByClassName('bub');
+
+    if (id == 'btn-right') {
+        if (link != nameOfPictures[nameOfPictures.length - 1]) {
+            let newSrc = nameOfPictures.indexOf(link) + 1;
+            link = nameOfPictures[newSrc];
+            changeBubble(b, newSrc, true);
+        }
+        else {
+            link = nameOfPictures[0];
+            changeBubble(b, 0, true);
+        }
+    }
+    else {
+        if (link != nameOfPictures[0]) {
+            let newSrc = nameOfPictures.indexOf(link) - 1;
+            link = nameOfPictures[newSrc];
+            changeBubble(b, newSrc, false);
+        }
+        else {
+            link = nameOfPictures[nameOfPictures.length - 1];
+            changeBubble(b, nameOfPictures.length - 1, false);
+        }
+    }
+    currenrPicture.src = link;
+}
+// getComputedStyle for compute btn.style.top!
+function getSliderHeight() {
+    let hWindow = window.innerHeight;
+    hWindow = hWindow / 20 + 'px';
+    let right = document.getElementById('btn-right');
+    let left = document.getElementById('btn-left');
+
+    right.style.top = hWindow;
+    left.style.top = hWindow;
+
+    console.log(hWindow);
+}
 
 // 
 window.onload = function () {
 
     const sldr = document.getElementsByClassName('slider')[0];
-    const sldrPg = sldr.children[0];
-    let pic = sldr.children[0].querySelector('img');
 
     // скрыть кнопки на слайдере
     sldr.addEventListener("mouseout", function () {
         let x = document.getElementsByClassName('navigator');
-        let o = sldr.getElementsByClassName('txtSldr')[0];
+        let o = sldr.getElementsByClassName('tracker')[0];
         for (let y of x) {
             y.style.display = '';
         }
-        //o.style.position = '';
-        o.style.bottom = '-2vh';
-        sldr.style.margin = '0 0 -2vh 0';
+        o.style.bottom = '';
+        sldr.style.margin = '';
     });
 
     // показать кнопки на слайдере
     sldr.addEventListener("mouseover", function () {
         let x = document.getElementsByClassName('navigator');
-        let o = sldr.getElementsByClassName('txtSldr')[0];
+        let o = sldr.getElementsByClassName('tracker')[0];
         for (let y of x) {
             y.style.display = 'inline-flex';
         }
-        //o.style.position = 'relative';
         o.style.bottom = '3vh';
-        let rMargin = nameOfPictures.length * 1.15 + 50 + '%';
-        o.style.margin = `0 ${rMargin} 0 0`;
         sldr.style.margin = '0 0 -7vh 0';
     });
+
 
     // #d32d2d; - базовый цвет кружкка
     // #ae4c4c; - новый цвет
@@ -160,28 +167,25 @@ window.onload = function () {
     });
 }
 
-// создаЄт кружки под картинкой, кот. показывают общее кол-во картинок 
-// и текущую картинку, чуть измен¤¤ свой цвет
-function addBub(amount, parent) {
-    let startLeftPos = 50;
-    for (let i = amount - 1; i > -1; i--) {
-        startLeftPos -= 0.5;
-        parent.insertAdjacentHTML("afterbegin", '<div class="bub"><div>');
-    }
-    parent.style.left = startLeftPos + '%';
-}
-
+// задаёт цвет для первого кружка, при загрузке страницы
 function startBubble() {
     let currPic = document.querySelector('img').src;
     let indexCurrPic = nameOfPictures.indexOf(currPic);
     document.getElementsByClassName('bub')[indexCurrPic].style.backgroundColor = "#ae4c4c";
 }
-
-// тест
-document.addEventListener('DOMContentLoaded', foo());
+// создаЄт кружки под картинкой, кот. показывают общее кол-во картинок 
+// и текущую картинку, чуть измен¤¤ свой цвет
+function addBub(amount, parent) {
+    for (let i = amount - 1; i > -1; i--) {
+        parent.insertAdjacentHTML("afterbegin", '<div class="bub"><div>');
+    }
+}
 
 // создаЄт коллекцию кружков под слайдером сразу после загрузки
-document.addEventListener('DOMContentLoaded', addBub(nameOfPictures.length, document.getElementsByClassName('txtSldr')[0]));
+document.addEventListener('DOMContentLoaded', addBub(nameOfPictures.length, document.getElementsByClassName('tracker')[0]));
 
 // задаЄт цвет первого кружка под слайдером сразу после загрузки
 document.addEventListener('DOMContentLoaded', startBubble);
+
+// тест
+document.addEventListener('DOMContentLoaded', foo);
