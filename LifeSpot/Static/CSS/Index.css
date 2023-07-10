@@ -274,3 +274,7 @@ img {
 .bub:last-child{
     margin:0;
 }
+.stop-grag{
+    width:1vh;
+    height:1vh;
+}

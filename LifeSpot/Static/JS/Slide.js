@@ -36,6 +36,7 @@ function foo1(x) {
     }
     console.log(g)
 }
+
 // красит кружок соответствующий текущей картинке
 // direction 'от первого к последнему' - true
 // direction 'от последнего к первому' - false
@@ -61,6 +62,7 @@ function changeBubble(bubbles, index, direction) {
         }
     }
 }
+
 // изменение текущей картинки, при помощи кнопок на слайдере
 function changePicture(id) {
     let currenrPicture = document.getElementsByClassName('slider')[0].children[0].querySelector('img');
@@ -91,7 +93,7 @@ function changePicture(id) {
     }
     currenrPicture.src = link;
 }
-// getComputedStyle for compute btn.style.top!
+
 function getSliderHeight() {
     let hWindow = window.innerHeight;
     hWindow = hWindow / 20 + 'px';
@@ -172,6 +174,7 @@ function startBubble() {
     let indexCurrPic = nameOfPictures.indexOf(currPic);
     document.getElementsByClassName('bub')[indexCurrPic].style.backgroundColor = "#ae4c4c";
 }
+
 // создаЄт кружки под картинкой, кот. показывают общее кол-во картинок 
 // и текущую картинку, чуть измен¤¤ свой цвет
 function addBub(amount, parent) {
@@ -188,7 +191,6 @@ document.addEventListener('DOMContentLoaded', startBubble);
 
 // тест
 document.addEventListener('DOMContentLoaded', foo);
-
 
 // картинки листаются с помощью стрелок, если предварительно кликнуть по картинке,
 // если кликнуть в другом месте - листать с помощью стрелок уже будет нельзя!

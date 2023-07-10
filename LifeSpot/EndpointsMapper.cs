@@ -64,6 +64,7 @@ namespace LifeSpot
             foreach(var item in htmlFiles)
             {
                 string pattern = (item.Key == "Index.html") ? "/" : $"/{item.Key}";
+
                 builder.MapGet(pattern, async context =>
                 {
                     var viewPath = Path.Combine(Directory
