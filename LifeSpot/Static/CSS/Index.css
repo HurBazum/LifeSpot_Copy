@@ -208,7 +208,6 @@ footer {
     display: flex;
     flex-wrap: wrap;
     margin: 0 0 -2vh 0;
-    /*text-align: center;*/
 }
 .slider-page {
     display:flex;
@@ -258,8 +257,8 @@ img {
     align-content: center;
     justify-content: center;
     bottom: -2vh;
-    margin: 0;
-    margin-left: 50%;
+    /*margin: 0;
+    margin-left: 50%;*/
 }
 .bub {
     position: relative;
@@ -273,8 +272,4 @@ img {
 }
 .bub:last-child{
     margin:0;
-}
-.stop-grag{
-    width:1vh;
-    height:1vh;
 }
